@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booksky</title>
+</head>
+<body>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+body{
+        font-family: "Noto Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight:bolder;
+        font-style: normal;
+        font-variation-settings:"wdth" 100;
+      
+}
+.widthmax{
+    width: 1550px;
+    height: 5px;
+    transition: 10s;
+    border-radius: 40%;
+    z-index: 1;
+}
+.navbar{
+    -webkit-text-fill-color: rgb(8, 43, 43);
+    forced-color-adjust:auto;
+    font-size: x-large;
+    font-weight: bolder;
+    background-color:rgba(0, 255, 255, 0.956);
+    padding:25px ;
+}
+
+.container{
+    padding: 20px;
+}
+.book-container{
+    display: inline-block;
+    padding: 15px;
+    width:25%;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    margin:30px;
+    vertical-align: top;
+}
+.book-container:hover{
+    background-color: rgb(2, 34, 47);
+}
+.book-container h2{
+    padding: 5px;
+    color: rgba(139, 255, 255, 0.956);
+}
+.book-container h5{
+    padding: 9px;
+    color: rgba(117, 226, 226, 0.956);
+}
+.book-container button{
+    padding-top: 10px;
+    font-weight:bold ;
+    background-color: rgba(255, 77, 0, 0.956);
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    vertical-align: top;
+    margin-top: 10px;
+}
+.add-button{
+    font-size: xx-large;
+    text-align: center;
+    background-color: #6ff8ff;
+    border-radius: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 40px;
+    border:solid rgb(147, 147, 238) 1px;
+    position: fixed;
+    bottom: 45px;
+    right: 45px;
+}
+.popup-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+}
+.popup-box{
+    background-color:#00fffb;
+    width: 50%;
+    height: 45%;
+    padding: 40px;
+    border-radius: 20px;
+    position: absolute;
+    top:20%;
+    left: 25%;
+    display: none;
+    z-index: 3;
+}
+.popup-box input{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    margin:5px;
+    padding: 5px;
+    font-size: 20px;
+    border-bottom: solid black 2px;
+}
+.popup-box textarea{
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    margin:5px;
+    padding-bottom: 60px;
+    font-size: 20px;
+    border: solid black 2px;
+}
+.popup-box input::placeholder{
+    color:black
+}
+.popup-box textarea::placeholder{
+    color:black
+}
+.popup-box button{
+    padding-left: 20px;
+    background-color: black;
+    padding-right: 20px;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    margin: 5px;
+    border-radius: 20px;
+}
+.popup-box input:focus{
+    outline: none;
+}
+.popup-box textarea:focus{
+    outline: none;
+}
+#add-book:hover{
+    background-color: rgb(22, 23, 22);
+    color: rgb(0, 255, 174);
+}
+#cancel-popup:hover{
+    color: rgb(243, 9, 9);
+}
+#del:hover{
+    background-color: rgb(47, 1, 1);
+    color: rgb(252, 72, 72);
+    border-color: grey;
+}
+#Authorname:hover{
+    color: rgb(139, 238, 255);
+}
+#bookskyn:hover{
+    color: #6ff8ff;
+    text-shadow: 34px;
+    background-color: rgb(0, 255, 183);
+}
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://drive.google.com/uc?id=1CKISm2LSMIfnwEKdYU8cmhNGx3e3HCVL">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <div id="bookskyn" class="navbar">
+        <ul>
+            <button style="margin: 0px;display: inline;" onmouseover="change1()"></button>
+        <button style="margin: 0px;display: inline;" onclick="change2()"></button>
+    <button onmouseover="change3()"></button>
+    <button onclick="change4()"></button>
+    <button onclick="change5()"></button>
+    <button onclick="change6()"></button>
+        </ul>
+        <h1 style="display: inline;">Booksky</h1>
+
+    </div>
+    <div id="navbard"> </div>
+    
+    <div class="container">
+        <div class="book-container">
+            <h2 id="Authorname">Be a Good Person</h2>
+            <h5>Robert</h5>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere reprehenderit amet magnam! Voluptate animi laboriosam, libero possimus eligendi molestiae iusto incidunt dignissimos nihil eum voluptatem quo suscipit quis facere modi.</p>
+            <button id="del" onclick="deletebook(event)">Delete</button>
+        </div>
+    </div>
+    <div class="popup-overlay"></div>
+    <div class="popup-box">
+        <h2 style="border-radius:10px ;padding-bottom: 10px;">Add Book</h2>
+        <form>
+            <input type="text" placeholder="Book Title" style="border-radius:10px;padding-bottom: 20px;" id="book-title-input">
+            <input type="text" placeholder="Book Author" style="border-radius:10px;padding-bottom: 20px;" id="book-author-input">
+            <textarea placeholder="Short Description" style="border-radius:10px;padding: 10px;margin: 15px;padding-bottom: 80px;" id="book-desc-input"></textarea>
+            <button id="add-book">ADD</button>
+            <button id="cancel-popup">CANCEL</button>
+        </form>
+    </div>
+    <button class="add-button" id="add-popup-button">➕</button>
+</body>
+</html>
+
+<script src="script.js"></script>
+<script>
+    var nav=document.getElementById("navbard")
+    function change1()
+    {
+        nav.style.backgroundColor="red"
+        nav.setAttribute("class","widthmax")
+    }
+    function change2()
+    {
+        box.style.backgroundColor="violet"
+        box.setAttribute("class","widthmax")
+    }
+    function change3()
+    {
+        box.style.backgroundColor="blue"
+        box.setAttribute("class","widthmax")
+    }
+    function change4()
+    {
+        box.style.backgroundColor="rgb(33, 226, 27)"
+        box.setAttribute("class","widthmax")
+    }
+    function change5()
+    {
+        box.style.backgroundColor="yellow"
+        box.setAttribute("class","widthmax")
+    }
+    function change6()
+    {
+        box.style.backgroundColor="aqua"
+        box.setAttribute("class","widthmax")
+    }
+
+var popupoverlay=document.querySelector(".popup-overlay")
+var popupbox=document.querySelector(".popup-box")
+var addpopupbutton=document.querySelector("#add-popup-button")
+
+addpopupbutton.addEventListener("click",function(){
+    popupoverlay.style.display="block"
+    popupbox.style.display="block"
+})
+
+var cancelbutton=document.getElementById("cancel-popup")
+cancelbutton.addEventListener("click",function(event){
+    event.preventDefault()
+    popupoverlay.style.display="none"
+    popupbox.style.display="none"
+})
+
+var container = document.querySelector(".container")
+var addbook = document.getElementById("add-book")
+var booktitleinput=document.getElementById("book-title-input")
+var bookauthorinput=document.getElementById("book-author-input")
+var bookdescinput=document.getElementById("book-desc-input")
+
+addbook.addEventListener("click",function(event){
+    event.preventDefault()
+    var div=document.createElement("div")
+    div.setAttribute("class","book-container")
+    div.innerHTML=`<h2>${booktitleinput.value}</h2>
+    <h5>${bookauthorinput.value}</h5>
+    <p>${bookdescinput.value}</p>
+    <button onclick="deletebook(event)">Delete</button>`
+    container.append(div)
+    popupoverlay.style.display="none"
+    popupbox.style.display="none"
+})
+
+function deletebook(event){
+    event.target.parentElement.remove()
+}
+
+</script>
+<script src="https://drive.google.com/uc?id=1_hWghM3j6sbhrLFRPIIgL1hJPrMghAK5"></script>
+<script src="https://drive.google.com/uc?id=1KkCLq7GQ_YfZstWJ6fLosmaH6hUz5pj_"></script>
